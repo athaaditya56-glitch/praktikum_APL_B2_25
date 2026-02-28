@@ -1,6 +1,17 @@
 #include <iostream>
 using namespace std;
 
+bool isNumber(string s) {
+    if (s.length() == 0) return false;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] < '0' || s[i] > '9') {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
     string nama;
     string password;
@@ -32,6 +43,7 @@ int main() {
     // MENU
     int pilihan;
     double nilai;
+    string inputPilihan;
 
     do {
         cout << "MENU KONVERSI PANJANG" << endl;
@@ -40,7 +52,14 @@ int main() {
         cout << "3. Centimeter -> Meter dan Kilometer" << endl;
         cout << "4. Keluar" << endl;
         cout << "Pilih menu (1-4): ";
-        cin >> pilihan;
+        cin >> inputPilihan;
+
+        if (!isNumber(inputPilihan)) {
+        cout << "Input harus integer!" << endl;
+        continue;
+}
+
+pilihan = stoi(inputPilihan);
 
         switch (pilihan) {
             case 1:
